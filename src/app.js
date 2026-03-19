@@ -23,4 +23,11 @@ app.post('/tasks', (req, res) => {
   res.status(201).json(newTask);
 });
 
-app.listen(3000, ()=> console.log("API running on port 3000"));
+// CI test change
+console.log("Testing CI with a Pull Request");
+
+if (require.main === module) {
+  app.listen(3000, () => console.log("API running on port 3000"));
+}
+
+module.exports = app;
